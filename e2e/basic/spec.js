@@ -1,4 +1,5 @@
 /* global describe it expect runConfig */
+
 import path from 'path'
 
 describe('with minimal options', () => {

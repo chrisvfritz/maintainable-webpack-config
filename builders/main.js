@@ -14,13 +14,14 @@ export const buildConfig = options => {
 }
 
 // TODO: Will also have to extend the schema for features
-const buildSchemaExtensions = options => {
+export const buildSchemaExtensions = options => {
   if (!options.schemaWhitelist) return Joi.object({})
-  return options.schemaWhitelist
+  const whiteListObject = options.schemaWhitelist
     .map(key => {
       return { [key]: Joi.any() }
     })
     .reduce((a, b) => merge({}, a, b))
+  return Joi.object(whiteListObject)
 }
 
 export default options => {
