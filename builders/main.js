@@ -3,11 +3,13 @@ import merge from 'webpack-merge'
 
 import validateOptions from '../validation/options'
 import buildBase from './base/base'
+import buildFeatureBabel from './features/loaders/babel'
 import buildEnv from './envs/env'
 
 export const buildConfig = options => {
   return merge.smart(
     buildBase(options),
+    buildFeatureBabel(options),
     buildEnv(options),
     options.webpack
   )

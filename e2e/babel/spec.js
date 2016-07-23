@@ -2,7 +2,7 @@
 
 import path from 'path'
 
-describe('with minimal options', () => {
+describe('babel', () => {
   const config = {
     folderStructure: {
       src: {
@@ -16,12 +16,12 @@ describe('with minimal options', () => {
     env: 'development'
   }
 
-  it('compiles successfully', done => {
+  it('works with esnext features down to stage-2', done => {
     runConfig(config)
       .then(() => {
         console.log = jasmine.createSpy('log')
         require('./tmp/app')
-        expect(console.log).toHaveBeenCalledWith('hello')
+        expect(console.log).toHaveBeenCalledWith('0,1,2,3,4,5,6,7,8,9')
         done()
       })
   })
