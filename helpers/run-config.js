@@ -1,8 +1,8 @@
 import webpack from 'webpack'
-import vueWebpackConfig from '../index.js'
+import webpackConfig from '../index.js'
 
 const runConfig = options => {
-  const config = vueWebpackConfig(options)
+  const config = webpackConfig(options)
   return new Promise((resolve, reject) => {
     webpack(config, (error, stats) => {
       if (error) reject(error)
